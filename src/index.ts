@@ -12,7 +12,10 @@ const createWindow = (): void => {
     height: 600,
     width: 800,
     webPreferences: {
-      webviewTag: true
+      nodeIntegration: true,
+      webviewTag: true,
+      enableRemoteModule: true,
+      contextIsolation:false
     }
   });
 

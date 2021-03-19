@@ -5,7 +5,11 @@ body {
 }
 
 webview.full-page {
-  min-height: 93vh;
-  max-height: 93vh;
+  min-height: 91vh;
+  max-height: 91vh;
   margin: 0px 16px;
+}
+
+.natural-language-control a {
+  border-bottom: 3px dotted #000000d9;
 }
