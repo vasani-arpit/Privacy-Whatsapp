@@ -43,8 +43,9 @@ export const ArchiveTab = () => {
             </Menu.Item>
         </Menu>
     )
+
     const menu = (
-        <Menu onClick={onClick}>
+        <Menu>
             <Menu.Item key="1">
                 <Checkbox>User1</Checkbox>
             </Menu.Item>
@@ -57,13 +58,19 @@ export const ArchiveTab = () => {
         </Menu>
     );
 
+    const handleVisibleChange = (flag: any) => {
+        setOverlayVisible(flag)
+    }
 
     const [SelectedFileFormat, setSelectedFileFormat] = useState('Text');
+    const [OverlayVisible, setOverlayVisible] = useState(false);
     return (
         <Layout style={{ backgroundColor: 'transparent' }}>
             <Content style={{ textAlign: 'center', minHeight: '78vh', background: 'transparent', display: 'table' }}>
                 <p className={'natural-language-control'} style={{ display: 'table-cell', verticalAlign: 'middle', fontSize: '-webkit-xxx-large' }}>
-                    Download chats of <Dropdown overlay={menu}><a>Chat1 and Chat2</a></Dropdown> in <Dropdown overlay={fileFormat}><a>{SelectedFileFormat}</a></Dropdown> format and save it on <a onClick={chooseFolder}>Desktop</a>.
+                    Download chats of <Dropdown visible={OverlayVisible} overlay={menu} onVisibleChange={handleVisibleChange}><a className="ant-dropdown-link" href="#">
+                        Chat1 and Chat2
+                    </a></Dropdown> in <Dropdown overlay={fileFormat}><a>{SelectedFileFormat}</a></Dropdown> format and save it on <a onClick={chooseFolder}>Desktop</a>.
                 </p>
             </Content>
             <Footer style={{ textAlign: 'center', background: 'transparent' }}>
