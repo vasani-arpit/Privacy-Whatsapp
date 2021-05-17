@@ -16,11 +16,16 @@ export const ArchiveTab = () => {
         message.info(`Click on item ${key}`);
     };
 
-    const chooseFolder = () => {
-        const path = dialog.showOpenDialog({
+    const chooseFolder = async () => {
+        const path = await dialog.showOpenDialog({
             properties: ['openDirectory']
         });
         console.log(path)
+        if (path.canceled) {
+            console.log("User canceled the change path dialog.")
+        }else{
+            //TODO: take the last folder name and update it in UI
+        }
         message.info(`Folder selected.`);
     }
 

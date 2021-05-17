@@ -31,15 +31,17 @@ console.log(randomId)
 export const ConversationsTab = () => {
 
     useEffect(() => {
-        document.querySelector("webview").addEventListener("dom-ready", () => {
-            console.log("dom is ready.")
+        document.querySelector("webview").addEventListener("dom-ready", (e) => {
+            console.log("dom is ready.", e.target)
+            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+            //@ts-ignore
+            e.target.openDevTools()
         })
         document.querySelector("webview").setAttribute("src", "https://web.whatsapp.com")
     })
 
     return (
         <webview
-
             id={`WA-${randomId}`}
             partition={`persist:mywasession${randomId}`}
             // eslint-disable-next-line @typescript-eslint/ban-ts-comment
