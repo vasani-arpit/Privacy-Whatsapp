@@ -1,8 +1,8 @@
 {
-  "name": "warchive",
-  "productName": "warchive",
+  "name": "privacy-whatsapp",
+  "productName": "Privacy Whatsapp",
   "version": "1.0.0",
-  "description": "My Electron application description",
+  "description": "Privacy centric Whatsapp",
   "main": ".webpack/main",
   "scripts": {
     "start": "electron-forge start",
