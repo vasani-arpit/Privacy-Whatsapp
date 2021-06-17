@@ -1,5 +1,6 @@
-import { app, BrowserWindow } from 'electron';
+import { app, BrowserWindow, ipcMain } from 'electron';
 declare const MAIN_WINDOW_WEBPACK_ENTRY: any;
+let mainWindow: BrowserWindow
 
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
 if (require('electron-squirrel-startup')) { // eslint-disable-line global-require
@@ -8,14 +9,14 @@ if (require('electron-squirrel-startup')) { // eslint-disable-line global-requir
 
 const createWindow = (): void => {
   // Create the browser window.
-  const mainWindow = new BrowserWindow({
+  mainWindow = new BrowserWindow({
     height: 600,
     width: 800,
     webPreferences: {
       nodeIntegration: true,
       webviewTag: true,
       enableRemoteModule: true,
-      contextIsolation:false
+      contextIsolation: false
     }
   });
 
@@ -52,3 +53,12 @@ app.on('activate', () => {
 
 // In this file you can include the rest of your app's specific main process
 // code. You can also put them in separate files and import them here.
+
+ipcMain.on("log", (sender, message) => {
+  console.log(message)
+});
+
+ipcMain.on("inject", () => {
+  console.log("Tell render to inject the JS")
+  mainWindow.webContents.send("injection")
+})

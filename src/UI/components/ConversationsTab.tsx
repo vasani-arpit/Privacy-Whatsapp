@@ -1,7 +1,8 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useRef } from 'react'
 
-import { remote } from "electron"
+import { remote, ipcRenderer } from "electron"
 import low from 'lowdb'
+import { readFileSync } from "fs";
 import FileSync from 'lowdb/adapters/FileSync'
 
 const path = remote.require('path')
@@ -24,11 +25,15 @@ if (existingId) {
 }
 
 
-
-
 console.log(randomId)
 
 export const ConversationsTab = () => {
+    const webview: any = useRef()
+    ipcRenderer.on("injection", () => {
+        console.log("Time to inject script")
+        webview.current.executeJavaScript(readFileSync("src/injection/WAPI.js", 'utf-8'))
+    })
+
 
     useEffect(() => {
         document.querySelector("webview").addEventListener("dom-ready", (e) => {
@@ -47,12 +52,13 @@ export const ConversationsTab = () => {
             // eslint-disable-next-line @typescript-eslint/ban-ts-comment
             //@ts-ignore
             disablewebsecurity="true"
-            useragent={`${window.navigator.userAgent.replace(/(WArchive|Electron|warchive)([^\s]+\s)/g, "")}`}
+            useragent={`${window.navigator.userAgent.replace(/(WArchive|Electron|warchive|PrivacyWhatsapp)([^\s]+\s)/g, "")}`}
             preload={`file://${path.resolve(remote.app.getAppPath(), './src/injection/index.js')}`}
             // eslint-disable-next-line @typescript-eslint/ban-ts-comment
             //@ts-ignore
-            nodeintegration="true"
-            className="full-page">
+            className="full-page"
+            ref={webview}
+        >
         </webview>
     )
 }
