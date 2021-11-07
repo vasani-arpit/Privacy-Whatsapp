@@ -27,7 +27,7 @@ function SideBar() {
                 Blur contact names
                 </Menu.Item>
                 <Menu.Item key="2" icon={<FileImageOutlined />} onClick={()=> console.log("blur images")}>
-                bblur contact images
+                Blur contact images
                 </Menu.Item>
                 <Menu.Item key="3" icon={ <MessageOutlined />} onClick={()=> console.log("blur last msg")}>
                 Blur last message
