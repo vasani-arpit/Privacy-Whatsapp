@@ -4,6 +4,7 @@ import { DownloadOutlined, DownOutlined } from '@ant-design/icons';
 import { Layout } from 'antd';
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 import { remote } from "electron";
+
 const dialog = remote.dialog;
 
 const { Footer, Content } = Layout;
@@ -70,17 +71,23 @@ export const ArchiveTab = () => {
     const [SelectedFileFormat, setSelectedFileFormat] = useState('Text');
     const [OverlayVisible, setOverlayVisible] = useState(false);
     return (
-        <Layout style={{ backgroundColor: 'transparent' }}>
+        <div>
+           
+            <Layout style={{ backgroundColor: 'transparent' , margin: 10}}>
+           
             <Content style={{ textAlign: 'center', minHeight: '78vh', background: 'transparent', display: 'table' }}>
                 <p className={'natural-language-control'} style={{ display: 'table-cell', verticalAlign: 'middle', fontSize: '-webkit-xxx-large' }}>
                     Download chats of <Dropdown visible={OverlayVisible} overlay={menu} onVisibleChange={handleVisibleChange}><a className="ant-dropdown-link" href="#">
                         Chat1 and Chat2
                     </a></Dropdown> in <Dropdown overlay={fileFormat}><a>{SelectedFileFormat}</a></Dropdown> format and save it on <a onClick={chooseFolder}>Desktop</a>.
                 </p>
+                
             </Content>
             <Footer style={{ textAlign: 'center', background: 'transparent' }}>
                 <Button type="primary" icon={<DownloadOutlined />} size={'large'}>Start</Button>
             </Footer>
         </Layout>
+        </div>
+       
     )
 }

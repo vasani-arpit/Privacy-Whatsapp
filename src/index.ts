@@ -62,3 +62,5 @@ ipcMain.on("inject", () => {
   console.log("Tell render to inject the JS")
   mainWindow.webContents.send("injection")
 })
+
+

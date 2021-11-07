@@ -16,7 +16,7 @@ const HeaderTab = () => {
       <TabPane
         tab={<span><UploadOutlined />Archive</span>}
         key="2">
-        <ArchiveTab />
+        <ArchiveTab/>
       </TabPane>
     </Tabs>
   )
