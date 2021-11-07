@@ -29,3 +29,12 @@ webview.full-page {
   [data-theme="dark"] .site-layout-sub-header-background {
     background: #141414;
   }
+
+  .modal{
+    float: right;
+    margin:10px;
+    
+  }
+  .mainmodal{
+    border-radius: 10px;
+  }

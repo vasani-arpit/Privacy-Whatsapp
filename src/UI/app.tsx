@@ -1,12 +1,14 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import HeaderTab from "./components/HeaderTab";
-import SideBar from './components/SideBar';
+import SettingsModal from './components/SettingsModal';
 import './index.css'
 
 function render() {
     ReactDOM.render(<div className="App">
-        <SideBar />
+        <SettingsModal /> 
+        <HeaderTab />
+       
     </div>,
         document.querySelector('#approot'));
 }
