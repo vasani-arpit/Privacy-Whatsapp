@@ -1,5 +1,4 @@
 import React, { useEffect, useRef } from 'react'
-
 import { remote, ipcRenderer } from "electron"
 import low from 'lowdb'
 import { readFileSync } from "fs";

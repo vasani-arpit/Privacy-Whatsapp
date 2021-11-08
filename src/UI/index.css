@@ -13,3 +13,28 @@ webview.full-page {
 .natural-language-control a {
   border-bottom: 3px dotted #000000d9;
 }
+.logo {
+  height: 32px;
+  margin: 16px;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.site-layout-sub-header-background {
+  background: #fff;
+}
+
+.site-layout-background {
+  background: #fff;
+}
+  [data-theme="dark"] .site-layout-sub-header-background {
+    background: #141414;
+  }
+
+  .modal{
+    float: right;
+    margin:10px;
+    
+  }
+  .collection-create-form_last-form-item {
+    margin-bottom: 0;
+  }
