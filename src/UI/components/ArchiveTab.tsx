@@ -48,7 +48,7 @@ const ContactForm = ({ visible, onSave, onCancel} : Props) => {
         >
           <Form.Item
             name="contact"
-            label="contact"
+            label="Enter recipient"
             rules={[
               {
                 required: true,
@@ -68,6 +68,7 @@ export const ArchiveTab = () => {
     const [visible, setVisible] = useState(false);
     const [SelectedFileFormat, setSelectedFileFormat] = useState('Text');
     const [contactName, setContactName]= useState("Contact");
+    const [foldername, setFolderName]= useState("Desktop");
 
     const onSave = (values: any) => {
       console.log("Received values of form: ", values);
@@ -84,11 +85,20 @@ export const ArchiveTab = () => {
         const path = await dialog.showOpenDialog({
             properties: ['openDirectory']
         });
-        console.log(path)
+
+        const pathname=path.filePaths[0];
+        console.log(pathname);
+      
         if (path.canceled) {
             console.log("User canceled the change path dialog.")
         }else{
             //TODO: take the last folder name and update it in UI
+            //check this method 
+            
+            var n = pathname.lastIndexOf("\\");
+            var result = pathname.substring(n + 1);
+            console.log(result)
+            setFolderName(result);
         }
         message.info(`Folder selected.`);
     }
@@ -150,7 +160,7 @@ export const ArchiveTab = () => {
                         setVisible(false);
                         }}
                     />
-                    in <Dropdown overlay={fileFormat}><a>{SelectedFileFormat}</a></Dropdown> format and save it on <a onClick={chooseFolder}>Desktop</a>.
+                    in <Dropdown overlay={fileFormat}><a>{SelectedFileFormat}</a></Dropdown> format and save it on <a onClick={chooseFolder}>{foldername}</a>.
                 </p>
                 
             </Content>
