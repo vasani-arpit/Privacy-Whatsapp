@@ -35,6 +35,6 @@ webview.full-page {
     margin:10px;
     
   }
-  .mainmodal{
-    border-radius: 10px;
+  .collection-create-form_last-form-item {
+    margin-bottom: 0;
   }
