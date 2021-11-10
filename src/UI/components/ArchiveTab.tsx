@@ -8,7 +8,7 @@ import '../index.css';
 import "antd/dist/antd.css";
 
 const dialog = remote.dialog;
-
+const os = require('os');
 const { Footer, Content } = Layout;
 
 const SupportedFormats: string[] = ['Text', 'HTML', 'PDF', 'Single Png', 'Multiple Png']
@@ -93,13 +93,24 @@ export const ArchiveTab = () => {
             console.log("User canceled the change path dialog.")
         }else{
             //TODO: take the last folder name and update it in UI
-            //check this method 
+            // add other os conditions 
+            // os.platforms returns 'aix', 'darwin', 'freebsd', 'linux', 'openbsd', 'sunos', and 'win32'.
+           
             
-            var n = pathname.lastIndexOf("\\");
-            var result = pathname.substring(n + 1);
-            console.log(result)
-            setFolderName(result);
-        }
+            console.log(os.platform());
+            const platform= os.platform();
+            if(platform==='win32'){
+              var n = pathname.lastIndexOf("\\");
+              var result = pathname.substring(n + 1);
+              console.log(result)
+              setFolderName(result);
+            }else if(platform==='linux')
+              var n = pathname.lastIndexOf("/");
+              var result = pathname.substring(n + 1);
+              console.log(result)
+              setFolderName(result);
+            }
+
         message.info(`Folder selected.`);
     }
 
