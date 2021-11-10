@@ -11,7 +11,7 @@ const dialog = remote.dialog;
 const os = require('os');
 const { Footer, Content } = Layout;
 
-const SupportedFormats: string[] = ['Text', 'HTML', 'PDF', 'Single Png', 'Multiple Png']
+const SupportedFormats: string[] = ['Text', 'Screenshot', 'PDF']
 
 interface Props {
     visible: boolean;
@@ -96,7 +96,6 @@ export const ArchiveTab = () => {
             // add other os conditions 
             // os.platforms returns 'aix', 'darwin', 'freebsd', 'linux', 'openbsd', 'sunos', and 'win32'.
            
-            
             console.log(os.platform());
             const platform= os.platform();
             if(platform==='win32'){
@@ -104,11 +103,12 @@ export const ArchiveTab = () => {
               var result = pathname.substring(n + 1);
               console.log(result)
               setFolderName(result);
-            }else if(platform==='linux')
+            }else {
               var n = pathname.lastIndexOf("/");
               var result = pathname.substring(n + 1);
               console.log(result)
               setFolderName(result);
+              }
             }
 
         message.info(`Folder selected.`);
@@ -129,20 +129,6 @@ export const ArchiveTab = () => {
         </Menu>
     )
 
-    // const menu = (
-    //     <Menu>
-    //         <Menu.Item key="1">
-    //             <Checkbox>User1</Checkbox>
-    //         </Menu.Item>
-    //         <Menu.Item key="2">
-    //             <Checkbox>User1</Checkbox>
-    //         </Menu.Item>
-    //         <Menu.Item key="3">
-    //             <Checkbox>User1</Checkbox>
-    //         </Menu.Item>
-    //     </Menu>
-    // );
-
     return (
         <div>
             <Layout style={{ backgroundColor: 'transparent' , margin: 10}}>
@@ -150,10 +136,6 @@ export const ArchiveTab = () => {
             <Content style={{ textAlign: 'center', minHeight: '78vh', background: 'transparent', display: 'table' }}>
                 <p className={'natural-language-control'} style={{ display: 'table-cell', verticalAlign: 'middle', fontSize: '-webkit-xxx-large' }}>
                     Download chats of 
-                    {/* <Dropdown visible={OverlayVisible} overlay={menu} onVisibleChange={handleVisibleChange}>
-                     <a className="ant-dropdown-link" href="#">
-                        Chat1 and Chat2
-                    </a></Dropdown>  */}
                      <Button
                         type="text"
                         size="large"
