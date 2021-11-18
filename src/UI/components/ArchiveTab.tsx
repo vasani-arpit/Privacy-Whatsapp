@@ -133,7 +133,7 @@ export const ArchiveTab = () => {
     <div>
       <Layout style={{ backgroundColor: 'transparent', margin: 10 }}>
 
-        <Content style={{ textAlign: 'center', minHeight: '78vh', background: 'transparent', display: 'table' }}>
+        <Content style={{ textAlign: 'center', minHeight: '50vh', background: 'transparent', display: 'table' }}>
           <p className={'natural-language-control'} style={{ display: 'table-cell', verticalAlign: 'middle', fontSize: '-webkit-xxx-large' }}>
             Download chats of
             <Button

@@ -32,7 +32,23 @@ export const ConversationsTab = () => {
         console.log("Time to inject script")
         webview.current.executeJavaScript(readFileSync("src/injection/WAPI.js", 'utf-8'))
     })
-
+    ipcRenderer.on("blurName", () => {
+        console.log("calling blurname..")
+        webview.current.executeJavaScript(readFileSync("src/injection/blurNames.js", 'utf-8'))
+    })
+    ipcRenderer.on("showName", () => {
+        console.log("calling showname..")
+        webview.current.executeJavaScript(readFileSync("src/injection/showNames.js", 'utf-8'))
+    })
+    ipcRenderer.on("blurDpImage", () => {   
+        console.log("calling blurDpImage..")
+        webview.current.executeJavaScript(readFileSync("src/injection/blurDpImage.js", 'utf-8'))
+        
+    })
+    ipcRenderer.on("showDpImage", () => {
+        console.log("calling showDpImage..")
+        webview.current.executeJavaScript(readFileSync("src/injection/showDpImage.js", 'utf-8'))
+    })
 
     useEffect(() => {
         document.querySelector("webview").addEventListener("dom-ready", (e) => {
