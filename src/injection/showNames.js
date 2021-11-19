@@ -1,9 +1,9 @@
-var leftSide = document.getElementById("pane-side"); 
+var leftSide = document.getElementById("pane-side");
 var chatNames = leftSide.getElementsByTagName("span");
-for(var x of chatNames) {
+for (var x of chatNames) {
     var textName = x.getElementsByClassName("emoji-texttt");
-    
-    if(textName != null) {
+
+    if (textName != null) {
         x.classList.remove("blur");
         x.style.filter = "none";
     }

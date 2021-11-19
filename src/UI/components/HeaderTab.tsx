@@ -20,21 +20,21 @@ const HeaderTab = () => {
       <Tabs defaultActiveKey="2" centered
       // onChange={()=>changetabkey(tabKey)}
       >
-      <TabPane
-        tab={<span><WhatsAppOutlined />Conversations</span>}
-        key="1">
-        <ConversationsTab />
-      </TabPane>
-      <TabPane
-        tab={<span><UploadOutlined />Archive</span>}
-        key="2">
-        <ArchiveTab/>
-      </TabPane>
-    
-    </Tabs>
+        <TabPane
+          tab={<span><WhatsAppOutlined />Conversations</span>}
+          key="1">
+          <ConversationsTab />
+        </TabPane>
+        <TabPane
+          tab={<span><UploadOutlined />Archive</span>}
+          key="2">
+          <ArchiveTab />
+        </TabPane>
+
+      </Tabs>
 
     </div>
-    
+
   )
 }
 
