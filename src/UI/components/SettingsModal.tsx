@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Tooltip } from 'antd';
 import React from 'react';
 import 'antd/dist/antd.css';
 import '../index.css';
@@ -7,7 +8,9 @@ import { SettingOutlined } from '@ant-design/icons';
 import { ipcRenderer } from 'electron';
 
 function SettingsModal() {
+
   const [modalVisible, setmodalVisible] = useState(false);
+  const [disableButton, setDisableButton] = useState(true);
 
   function onBlurNames(e: any) {
 
@@ -33,12 +36,26 @@ function SettingsModal() {
     }
   }
 
+  ipcRenderer.on("enableSettingsButton", () => {
+    console.log("enabling button..")
+    console.log(disableButton)
+
+    setDisableButton(false)
+  })
+
+  console.log(disableButton)
 
   return (
     <>
-      <Button type="text" onClick={() => setmodalVisible(true)} className="modal">
-        <SettingOutlined style={{ fontSize: 20 }} />
-      </Button>
+      {/*show button only when user logs in */}
+      {
+        !disableButton ? <Tooltip title="Change privacy settings" placement="topRight" color="#87d068" arrowPointAtCenter>
+          <Button type="text" onClick={() => setmodalVisible(true)} className="modal" >
+            <SettingOutlined style={{ fontSize: 20 }} />
+          </Button>
+        </Tooltip> : ""
+      }
+
       <Modal
         title="Select the settings you want to add in your chats."
         centered
