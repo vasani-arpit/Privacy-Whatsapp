@@ -89,6 +89,7 @@
   },
   "dependencies": {
     "@ant-design/icons": "^4.7.0",
+    "@mui/material": "^5.2.1",
     "@types/lowdb": "^1.0.9",
     "antd": "^4.13.1",
     "electron-reload": "^2.0.0-alpha.1",

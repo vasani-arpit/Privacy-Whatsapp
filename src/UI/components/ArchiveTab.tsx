@@ -131,7 +131,7 @@ export const ArchiveTab = () => {
 
   return (
     <div>
-      <Layout style={{ backgroundColor: 'transparent', margin: 10 }}>
+      <Layout style={{ backgroundColor: 'transparent', margin: 10, color: "black" }}>
 
         <Content style={{ textAlign: 'center', minHeight: '50vh', background: 'transparent', display: 'table' }}>
           <p className={'natural-language-control'} style={{ display: 'table-cell', verticalAlign: 'middle', fontSize: '-webkit-xxx-large' }}>
