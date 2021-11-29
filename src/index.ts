@@ -62,6 +62,13 @@ ipcMain.on("inject", () => {
   console.log("Tell render to inject the JS")
   mainWindow.webContents.send("injection")
 })
+
+ipcMain.on("enablesettings", () => {
+  console.log("injection done.. enable button now")
+  mainWindow.webContents.send("enableSettingsButton")
+
+})
+
 ipcMain.on("blur-name", () => {
   console.log("blur name")
   mainWindow.webContents.send("blurName")
@@ -73,6 +80,10 @@ ipcMain.on("show-name", () => {
 ipcMain.on("blur-dp", () => {
   console.log("blur dp")
   mainWindow.webContents.send("blurDpImage")
+})
+ipcMain.on("show-dp", () => {
+  console.log("show dp")
+  mainWindow.webContents.send("showDpImage")
 })
 ipcMain.on("show-dp", () => {
   console.log("show dp")
