@@ -55,17 +55,48 @@ webview.full-page {
 
   }
   .chip{
-    border: #0b9c1ed9 solid 1.5px;
-    border-radius: 2.5vh;
-    line-height: normal;
+    border: #80dd8dd9 solid 2px;
+    background-color: #0b9c1ed9;
+    border-radius: 5vh;
+    line-height: 3.3vh;
     max-height: fit-content;
     max-width: fit-content;
-    padding:1.3vh;
+    padding-inline:0.8vh;
     font-size: 1.6vh;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: monospace;
     font-weight: 400;
-    color:rgb(77, 74, 74);
+    color:rgb(238, 238, 238);
 
+  }
+  .rightlist{
+    border: rgb(177, 177, 177) 0.5px solid;
+    margin-inline:0.5vh;
+    margin-top: 0.8vh;
+    border-radius: 0.5vh;
+    font-size: 0.75rem;
+   
+    padding:0.5rem;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 300;
+  }
+
+  .siderTitle{
+    padding:0;
+    line-height:1vh;
+    font-size: 0.9rem;
+   margin: 1.5vh;
+    font-weight: 600;
+    color:rgb(73, 73, 73);
+    
+    
+  }
+ 
+  .divisionsider{
+    margin-top: 5vh;
+   
+  }
+  .List{
+    margin-inline:1em;
   }
   
 
