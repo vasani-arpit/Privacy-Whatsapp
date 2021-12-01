@@ -89,6 +89,7 @@
   },
   "dependencies": {
     "@ant-design/icons": "^4.7.0",
+    "@mui/icons-material": "^5.2.0",
     "@mui/material": "^5.2.1",
     "@types/lowdb": "^1.0.9",
     "antd": "^4.13.1",
@@ -96,6 +97,7 @@
     "electron-squirrel-startup": "^1.0.0",
     "lowdb": "^1.0.0",
     "react": "^17.0.1",
-    "react-dom": "^17.0.1"
+    "react-dom": "^17.0.1",
+    "react-icons": "^4.3.1"
   }
 }
