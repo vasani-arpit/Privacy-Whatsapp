@@ -8,6 +8,7 @@ import { QuestionCircleOutlined, ClockCircleOutlined } from '@ant-design/icons';
 import { BsFillPencilFill, BsPlay } from "react-icons/bs";
 import { MdDeleteOutline } from "react-icons/md";
 import LongMenu from './Sidemenudropdown';
+import FlowChart from './FlowChart';
 
 const { Header, Sider, Content } = Layout;
 
@@ -77,7 +78,7 @@ const AutomationTab = () => {
                         />
                     </Sider>
                     <Content className={"content-automation"}>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis temporibus iure in, beatae totam quas sequi molestiae dolore excepturi delectus, veniam accusamus quisquam ratione mollitia fuga architecto illum quos eos?
+                       <FlowChart/>
                     </Content>
 
                     <Sider width="22vw" >
