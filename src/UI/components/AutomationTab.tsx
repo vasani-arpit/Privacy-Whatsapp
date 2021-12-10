@@ -1,16 +1,16 @@
-import React from 'react';
+import React, {useState} from 'react';
 import 'antd/dist/antd.css';
 import '../../UI/index.css';
 import { Layout } from 'antd';
 import { List, Divider } from 'antd';
-import { ArrowLeftOutlined } from '@ant-design/icons';
 import { QuestionCircleOutlined, ClockCircleOutlined } from '@ant-design/icons';
 import { BsFillPencilFill, BsPlay } from "react-icons/bs";
 import { MdDeleteOutline } from "react-icons/md";
 import LongMenu from './Sidemenudropdown';
 import FlowChart from './FlowChart';
+import itemsArr from './FlowChart';
 
-const { Header, Sider, Content } = Layout;
+const {  Sider, Content } = Layout;
 
 const workflows = [{
     desc: 'Message from x',
@@ -50,23 +50,57 @@ const functions = [{
 },
 ];
 
+const WhenList = [{
+    desc: 'Recieve message',
+    id: 1
+},
+{
+    desc: 'Added to a group',
+    id: 2
+},
+{
+    desc: 'Status update ',
+    id: 3
+},
+];
+
+const SetList = [{
+    desc: 'reply to message',
+    id: 1
+},
+{
+    desc: 'approve the group',
+    id: 2
+},
+{
+    desc: 'view update ',
+    id: 3
+},
+];
+// @ts-ignore
+console.log(itemsArr.itemsArr)
+
 
 const AutomationTab = () => {
+    const [titleVal, setTitleVal]= useState("When");
     const handleOnclick = (desc: string, id: number) => {
 
         //write if else conditions based on ids for implementation of corresponding feature
         console.log(desc, id);
     }
+    const handleCallback = (titleVal: string) =>{
+        setTitleVal(titleVal);
+    }
+
+    console.log(titleVal);
+    const handleOptionclick=(title:string)=>{
+        console.log(title);
+    }
 
     return (
         <div>
             <Layout>
-                <Header>
-                    <span>
-                        <ArrowLeftOutlined style={{ padding: 3, fontSize: 16, fontWeight: 600 }} />
-                    </span>
-                    Workflows
-                </Header>
+                
                 <Layout>
                     <Sider width="25vw">
                         <Divider orientation="left">Default workflows</Divider>
@@ -78,19 +112,34 @@ const AutomationTab = () => {
                         />
                     </Sider>
                     <Content className={"content-automation"}>
-                       <FlowChart/>
+                       <FlowChart parentCallback={handleCallback}/>
                     </Content>
 
                     <Sider width="22vw" >
 
-                        <Divider orientation="left">
-                            <div className="chip">
-                                coming soon
-                            </div>
-
-                        </Divider>
                         <div style={{ lineHeight: "normal", margin: 8, color: "#315C5C", fontSize: 16 }}>create and edit your workflow</div>
                         <hr style={{ marginInline: 10 }} />
+                        <div>
+                            {titleVal=="When"? (
+                                WhenList.map((item)=>{
+                                    return(
+                                        <p className="optionsList" key={item.id} 
+                                        onClick={()=>handleOptionclick(item.desc)}>
+                                             {item.desc}</p>
+                                    )
+                                   
+                                })
+                            ) :(
+                                SetList.map((item)=>{
+                                    return(
+                                        <p className="optionsList" key={item.id}
+                                        onClick={()=>handleOptionclick(item.desc)}>
+                                             {item.desc}</p>
+                                    )
+                                })
+                            ) }
+                        </div>
+                       
 
                         <div className="divisionsider">
                             <div className="siderTitle">Conditionals</div>
@@ -136,7 +185,6 @@ const AutomationTab = () => {
                         </div>
                     </Sider>
                 </Layout>
-
             </Layout>
 
         </div>
